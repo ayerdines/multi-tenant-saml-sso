@@ -1,0 +1,32 @@
+<div class="w-full flex flex-col items-center justify-start">
+  <h1 class="font-bold text-2xl py-4 border-b border-gray">Login</h1>
+
+  <%= form_for(resource, url: user_session_path, html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="actions mt-4 text-center">
+      <%= f.submit "Login", class: 'w-full bg-sky-500 px-3 py-1.5 text-white' %>
+    </div>
+
+    <div class="mt-4 border-b"></div>
+  <% end %>
+
+  <div class="mt-4">
+    <% SamlIdentityProvider.all.each do |idp| %>
+      <%= button_to "SSO (#{idp.organization.name})",
+                  "/users/auth/saml/#{idp.organization.slug}",
+                  class: 'w-full bg-sky-500 px-3 py-1.5 text-white',
+                  data: { turbo: false } %>
+    <% end %>
+  </div>
+</div>

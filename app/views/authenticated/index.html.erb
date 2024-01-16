@@ -1,0 +1,5 @@
+<% if @sso_user %>
+<p> This is a SSO user with attributes: <%= @saml_attributes %></p>
+<% else %>
+<p> This is not a SSO user.</p>
+<% end %>

@@ -1,0 +1,2 @@
+module SamlIdentityProvidersHelper
+end

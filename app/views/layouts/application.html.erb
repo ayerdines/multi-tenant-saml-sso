@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multi-tenant SSO Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main class="min-h-screen w-full">
+      <%= render 'layouts/navbar' %>
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="my-8">
+          <% if flash[:notice] %>
+            <div class="px-4 py-2 rounded-lg bg-sky-300 text-sky-800 my-8"><%= flash[:notice] %></div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="px-4 py-2 rounded-lg bg-red-300 text-red-800"><%= flash[:alert] %></div>
+          <% end %>
+        </div>
+        <div class="mt-20">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

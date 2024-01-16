@@ -1,0 +1,13 @@
+<div class="w-full flex flex-col justify-center">
+  <h1 class="text-2xl font-bold">Welcome!!</h1>
+  <p>This is a sample rails application demonstrating SSO with SAML2.0 protocol in multi-tenant scenario.</p>
+  <p>A custom SAML IdP can be configured for each tenant. This configuration will work with all identity providers following SAML2.0 standard, however I've only tested this with Azure Entra ID and Okta.</p>
+
+  <div class="pt-12 w-full flex flex-col justify-center">
+    <h2 class="text-xl font-bold">How to use</h2>
+    <p>To use this application, you need to create a tenant and configure a SAML IdP for that tenant.</p>
+    <p>Once you have configured a tenant, you can use the tenant's SAML IdP to login to this application.</p>
+    <p>You can also configure multiple tenants and use different SAML IdPs to login to this application.</p>
+    <p>To test the SSO please go to the <%= link_to 'login page', new_user_session_path, class: 'underline text-sky-500' %>.</p>
+  </div>
+</div>
